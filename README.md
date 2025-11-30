@@ -34,7 +34,7 @@ npm install
 3. Start development server
 npm run dev
 4. Open the app
-click http://localhost:5173/
+open http://localhost:5173/
 
 
 USING THE APP-Encoding
@@ -65,4 +65,4 @@ All encoding/decoding happens locally in the browser.
 
 REFERENCES
 1. LSB Steganography Using Pixel Locator Sequence with AES — describes the randomized pixel-locator method that inspired our implementation.
-2. Johnson, Neil F., and Sushil Jajodia. “Exploring Steganography: Seeing the Unseen.” IEEE Computer, 1998.- explains why traditional LSB steganography is easy to detect, which our project solves. The paper explains that attackers can find hidden data by checking predictable positions, we break this weakness by: randomly selecting pixels using ISAAC, never embedding in sequence, creating a pointer-based pixel chain. LSB creates detectable patterns with histogram distortion and patterns in colors, but we search for the closest-matching pixel for each encrypted byte and spread changes across the image instead of clustering them.
+2. Johnson, Neil F., and Sushil Jajodia. “Exploring Steganography: Seeing the Unseen.” IEEE Computer, 1998.- explains why traditional LSB steganography is easy to detect, which our project solves. The paper explains that attackers can find hidden data by checking predictable positions, we break this weakness by: randomly selecting pixels using ISAAC, never embedding in sequence, creating a pointer-based pixel chain. LSB creates detectable patterns with histogram distortion and patterns in colors, but we minimize visual distortion by selecting pixels whose modified values stay closest to the original using a similarity score and spread changes across the image instead of clustering them.
