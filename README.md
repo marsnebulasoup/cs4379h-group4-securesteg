@@ -1,5 +1,7 @@
 IMAGE STEGANOGRAPHY WITH AES ENCRYPTION
 
+
+
 This project is a React + TypeScript application that hides secret messages inside images using an improved form of LSB (Least Significant Bit) steganography.
 Our method uses:
 -AES256 encryption
@@ -8,6 +10,7 @@ Our method uses:
 -Minimal visual changes to protect against detection
 
 User can upload an image, enter a message, generate an encoded stego image, and later decode that message using a key.
+
 
 HOW IT WORKS
 1. Encrypt message using AES-256
@@ -21,6 +24,7 @@ The app chooses pixel modifications that change the image as little as possible.
 5. Decode using the key
 The key contains all the information needed to rebuild the same pixel set and pointer chain.
 
+
 HOW TO RUN THIS APPLICATION
 1. Clone the repo
 git clone <https://github.com/marsnebulasoup/cs4379h-group4-securesteg.git>
@@ -31,6 +35,7 @@ npm install
 npm run dev
 4. Open the app
 click http://localhost:5173/
+
 
 USING THE APP-Encoding
 1. Go to the Encode tab
@@ -46,6 +51,7 @@ USING THE APP-decoding
 4. Click Decode Message
 5. Your hidden message will appear if the key is correct
 
+
 To reproduce the results:
 1. Run:
 npm install
@@ -55,3 +61,8 @@ npm run dev
 4. Decode using the encoded PNG + key
 5. The decoded message should match the original input
 All encoding/decoding happens locally in the browser.
+
+
+REFERENCES
+1. LSB Steganography Using Pixel Locator Sequence with AES — describes the randomized pixel-locator method that inspired our implementation.
+2. Johnson, Neil F., and Sushil Jajodia. “Exploring Steganography: Seeing the Unseen.” IEEE Computer, 1998.- explains why traditional LSB steganography is easy to detect, which our project solves. The paper explains that attackers can find hidden data by checking predictable positions, we break this weakness by: randomly selecting pixels using ISAAC, never embedding in sequence, creating a pointer-based pixel chain. LSB creates detectable patterns with histogram distortion and patterns in colors, but we search for the closest-matching pixel for each encrypted byte and spread changes across the image instead of clustering them.
