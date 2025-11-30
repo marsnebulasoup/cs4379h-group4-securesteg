@@ -45,3 +45,13 @@ USING THE APP-decoding
 3. Paste the decryption key
 4. Click Decode Message
 5. Your hidden message will appear if the key is correct
+
+To reproduce the results:
+1. Run:
+npm install
+npm run dev
+2. Encode a short message into any provided sample image
+3. Copy the generated key
+4. Decode using the encoded PNG + key
+5. The decoded message should match the original input
+All encoding/decoding happens locally in the browser.
