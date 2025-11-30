@@ -20,3 +20,16 @@ Each pixel stores: one encrypted byte, a pointer telling the decoder where the n
 The app chooses pixel modifications that change the image as little as possible.
 5. Decode using the key
 The key contains all the information needed to rebuild the same pixel set and pointer chain.
+
+HOW TO RUN THIS APPLICATION
+1. Clone the repo
+git clone <https://github.com/marsnebulasoup/cs4379h-group4-securesteg.git>
+cd cs4379h-group4-securesteg
+2. Install dependecies
+npm install
+3. Start development server
+npm run dev
+4. Open the app
+click http://localhost:5173/
+
+
