@@ -32,4 +32,16 @@ npm run dev
 4. Open the app
 click http://localhost:5173/
 
+USING THE APP-Encoding
+1. Go to the Encode tab
+2. Upload an image
+3. Type a secret message
+4. Click Encrypt & Hide Message
+5. Save the encoded image and the decryption key (required to decode later)
 
+USING THE APP-decoding
+1. Go to the Decode tab
+2. Upload your encoded image
+3. Paste the decryption key
+4. Click Decode Message
+5. Your hidden message will appear if the key is correct
