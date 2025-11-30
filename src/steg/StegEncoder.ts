@@ -98,7 +98,7 @@ export class StegEncoder {
             throw new ReferenceError(`image has not been initialized yet.`);
         }
 
-        // encrypt message
+        // encrypt the message
         this.dbg("[StegEncoder] Using unified key for RNG, pointers, and encryption...");
         const key: WordArray = this.key;
 
@@ -154,7 +154,7 @@ export class StegEncoder {
         currentPixel.setChannel(PixelChannels.RED, msg_e[msg_e.length - 1]);
         this.dbg(`[StegEncoder] Last pixel after setting RED=${msg_e[msg_e.length - 1]}:`, currentPixel.bytes);
         encodedPixels.push(currentPixel);
-        // Track the array position of the currentPixel within encodablePixels
+        // Track the array positon of the currentPixel within encodablePixels
         let currentPos = encodablePixels.findIndex(p => p.index === currentPixel.index);
         const usedPositions = new Set<number>([currentPos]);
 
