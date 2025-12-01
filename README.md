@@ -27,14 +27,22 @@ The key contains all the information needed to rebuild the same pixel set and po
 
 ## HOW TO RUN THIS APPLICATION
 1. Clone the repo
+```
 git clone https://github.com/marsnebulasoup/cs4379h-group4-securesteg.git
 cd cs4379h-group4-securesteg
+```
 2. Install dependecies
+```
 npm install
+```
 3. Start development server
+```
 npm run dev
+```
 4. Open the app
-open http://localhost:5173/ (or whatever link is shown)
+```
+http://localhost:5173/ (or whatever link is shown)
+```
 
 You can use the test image in /example-images, or pick your own (PNG is supported)
 
@@ -68,6 +76,6 @@ npm run dev
 All encoding/decoding happens locally in the browser.
 
 
-REFERENCES
+## REFERENCES
 1. LSB Steganography Using Pixel Locator Sequence with AES — describes the randomized pixel-locator method that inspired our implementation.
 2. Johnson, Neil F., and Sushil Jajodia. “Exploring Steganography: Seeing the Unseen.” IEEE Computer, 1998.- explains why traditional LSB steganography is easy to detect, which our project solves. The paper explains that attackers can find hidden data by checking predictable positions, we break this weakness by: randomly selecting pixels using ISAAC, never embedding in sequence, creating a pointer-based pixel chain. LSB creates detectable patterns with histogram distortion and patterns in colors, but we minimize visual distortion by selecting pixels whose modified values stay closest to the original using a similarity score and spread changes across the image instead of clustering them.
