@@ -57,10 +57,8 @@ export class StegEncoder {
         if (this.debug) console.warn(...args);
     }
 
-    // Computes encoding statistics for the provided set of encoded pixels.
-    // Stats include image-wide counts and per-encoded-pixel bit modifications.
+    // computes encoding statistics for the provided set of encoded pixels for the frontend to display. not part of the core algorithm.
     private computeEncodeStats(encodedPixels: StegPixel[]): EncodeStats {
-        // Deduplicate to the final state per index (last write wins)
         const indexToPixel = new Map<number, StegPixel>();
         for (const p of encodedPixels) {
             indexToPixel.set(p.index, p);
@@ -184,10 +182,7 @@ export class StegEncoder {
             const fallbackPixels = encodablePixels
                 .filter(p => !exactMatchPixels.includes(p)) // exclude exact matches to avoid duplicates
                 .slice()
-                .sort((a, b) =>
-                    Math.abs(a.bytes[PixelChannels.RED] - byte) -
-                    Math.abs(b.bytes[PixelChannels.RED] - byte)
-                );
+                .sort((a, b) => a.similarity(b));
             const candidatePixels = [...exactMatchPixels, ...fallbackPixels];
             this.dbg(`[StegEncoder] Candidate previous pixels (exact first): ${candidatePixels.length}, ${JSON.stringify(candidatePixels.slice(0, 5).map(p => { return {index: p.index, bytes: p.bytes}}))}...`);
 
