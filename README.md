@@ -4,10 +4,10 @@
 This project is a React + TypeScript demo application that hides secret messages inside images using an custom form of pointer chain steganography.
 
 Our method uses:
--AES256 encryption
--Randomized pixel selection using the ISAAC PRNG
--Pointer based pixel chaining
--Minimal visual changes to protect against detection
+- AES256 encryption
+- Randomized pixel selection using the ISAAC PRNG
+- Pointer based pixel chaining
+- Minimal visual changes to protect against detection
 
 User can upload an image, enter a message, generate an encoded stego image, and later decode that message using a key.
 
