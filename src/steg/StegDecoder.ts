@@ -1,3 +1,11 @@
+/**
+ * StegDecoder
+ * -------------------
+ * This class performs the decoding phase of the steganography system.
+ * It extracts and decrypts a hidden message from a stego-image produced
+ * by the StegEncoder.
+ */
+
 import { StegHelpers, type StegKey } from "./StegHelpers";
 import { StegImage } from "./StegImage";
 import isaac from 'isaac';
