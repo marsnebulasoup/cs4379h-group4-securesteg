@@ -1,3 +1,15 @@
+/**
+ * StegEncoder
+ * ---------------
+ * This class performs the encoding phase of our steganography system.
+ * It hides an encrypted message inside an image using:
+ *   - AES-256 encryption
+ *   - Randomized pixel selection using the ISAAC PRNG
+ *   - Pointer-based pixel chaining
+ *   - Minimal visual modifications to avoid detection
+*/
+
+
 import { WordArray } from 'crypto-es'
 import { StegHelpers } from './StegHelpers';
 import { StegImage } from './StegImage';
