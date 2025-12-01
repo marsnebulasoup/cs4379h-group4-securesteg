@@ -55,7 +55,17 @@ export class StegDecoder {
 
         if (this.debug) console.log(`[StegDecoder] Will extract ${this.msgLength} bytes, starting at firstPixelPos=${this.firstPixelIndex}`);
         const msg_e = new Uint8Array(this.msgLength);
+
+        // Validate that the starting pixel index does makes sense.
+        // If the user provides the wrong key, the firstPixelIndex could be invalid.
+        if (
+            this.firstPixelIndex < 0 ||
+            this.firstPixelIndex >= decodablePixels.length
+        ) {
+            throw new Error("Invalid key: starting pixel index is out of range.");
+        }
         let currentPixel = decodablePixels[this.firstPixelIndex];
+
 
         for (let i = 0; i < this.msgLength; i++) {
             if (this.debug) {
