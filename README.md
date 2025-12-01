@@ -1,8 +1,8 @@
-IMAGE STEGANOGRAPHY WITH AES ENCRYPTION
+# IMAGE STEGANOGRAPHY WITH AES ENCRYPTION
 
 
+This project is a React + TypeScript demo application that hides secret messages inside images using an custom form of pointer chain steganography.
 
-This project is a React + TypeScript application that hides secret messages inside images using an improved form of LSB (Least Significant Bit) steganography.
 Our method uses:
 -AES256 encryption
 -Randomized pixel selection using the ISAAC PRNG
@@ -12,7 +12,7 @@ Our method uses:
 User can upload an image, enter a message, generate an encoded stego image, and later decode that message using a key.
 
 
-HOW IT WORKS
+## HOW IT WORKS
 1. Encrypt message using AES-256
 No one can read the hidden data without the key.
 2. Randomly select pixels
@@ -25,26 +25,26 @@ The app chooses pixel modifications that change the image as little as possible.
 The key contains all the information needed to rebuild the same pixel set and pointer chain.
 
 
-HOW TO RUN THIS APPLICATION
+## HOW TO RUN THIS APPLICATION
 1. Clone the repo
-git clone <https://github.com/marsnebulasoup/cs4379h-group4-securesteg.git>
+git clone https://github.com/marsnebulasoup/cs4379h-group4-securesteg.git
 cd cs4379h-group4-securesteg
 2. Install dependecies
 npm install
 3. Start development server
 npm run dev
 4. Open the app
-open http://localhost:5173/
+open http://localhost:5173/ (or whatever link is shown)
 
 
-USING THE APP-Encoding
+## USING THE APP-Encoding
 1. Go to the Encode tab
 2. Upload an image
 3. Type a secret message
 4. Click Encrypt & Hide Message
 5. Save the encoded image and the decryption key (required to decode later)
 
-USING THE APP-decoding
+## USING THE APP-decoding
 1. Go to the Decode tab
 2. Upload your encoded image
 3. Paste the decryption key
@@ -54,12 +54,15 @@ USING THE APP-decoding
 
 To reproduce the results:
 1. Run:
+```
 npm install
 npm run dev
+```
 2. Encode a short message into any provided sample image
 3. Copy the generated key
 4. Decode using the encoded PNG + key
 5. The decoded message should match the original input
+
 All encoding/decoding happens locally in the browser.
 
 
