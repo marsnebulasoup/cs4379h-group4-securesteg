@@ -36,6 +36,8 @@ npm run dev
 4. Open the app
 open http://localhost:5173/ (or whatever link is shown)
 
+You can use the test image in /example-images, or pick your own (PNG is supported)
+
 
 ## USING THE APP-Encoding
 1. Go to the Encode tab
