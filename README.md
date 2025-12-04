@@ -44,6 +44,21 @@ Decoding traverses the chain forward.
 
 4. This process repeats for $L$ iterations to reconstruct the encrypted bytes, which is finally decrypted using AES-256 to reveal the plaintext.
 
+## EXPERIMENTAL OBSERVATIONS
+The effectiveness of the algorithm was observed through histogram analysis and parameter tuning.
+
+1. Comparisons between cover images and stego-images show almost perfectly aligned histograms. This indicates that the embedding process introduces negligible differences, maintaining the cover image's profile.
+
+![](/src/assets/run1.png)
+![](/src/assets/histogram.png)
+
+2. We observed that adjusting the alias count $t$ (the number of pointers mapping to the same pixel) presents a trade-off but results in consistently low distortion.
+   - **Higher $t$:** Increases the number of valid pointer values $(G, B)$ for a given target, offering more flexibility in the Green and Blue channels. However, it reduces the size of the pixel pool $|S|$, limiting options for the Red channel and spatial location.
+   - **Lower $t$:** Increases the pixel pool size $|S|$, offering more candidate pixels (better spatial/Red channel matches) but restricts the valid pointer values.
+   - **Result:** In practice, both configurations yield effective steganography, as the algorithm successfully finds minimal-distortion embeddings in either regime.
+
+
+
 ## HOW TO RUN THIS APPLICATION
 1. Clone the repo
 ```
