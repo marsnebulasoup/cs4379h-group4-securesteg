@@ -1,4 +1,4 @@
-# IMAGE STEGANOGRAPHY WITH AES ENCRYPTION
+# POINTER CHAIN IMAGE STEGANOGRAPHY WITH AES ENCRYPTION
 
 This project is a React + TypeScript demo application that hides secret messages inside images using a custom form of pointer chain steganography.
 
